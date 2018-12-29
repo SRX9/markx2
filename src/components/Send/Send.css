@@ -1,0 +1,18 @@
+
+input{
+    width: 80%;
+    height: 30px;
+    padding: 20px;
+-webkit-border-radius: 50px;
+-moz-border-radius: 50px;
+border-radius: 50px;
+}
+
+
+.footer {
+    width: 100%;
+    padding: 10px;
+    align-items: center;
+  position: fixed;
+  bottom: 0;
+}
