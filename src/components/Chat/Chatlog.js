@@ -1,22 +1,16 @@
 import React from 'react';
-import {msgarr} from '../data';
 import Card from '../Card/Card';
-class Chatlog extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state={
-
-        }
-
-    }
-
-    render() {
-        return(
-                <div class="flex flex-column fr">
-                { msgarr.map((msg) => <Card key={msg} msg={msg} />) }
-                </div>
-            );
-    }
+import './chat.css'
+const Chatlog =(props)=>{
+  return(    
+          <div 
+            className=" q  "
+            >
+            {props.msgarr.map((msgob,index) => (
+              <Card cuser={props.cuser} msgob={props.msgarr[props.msgarr.length-1-index]} key={msgob.msg}/>
+            ))}
+          </div>
+        );
 }
 
 export default Chatlog;
