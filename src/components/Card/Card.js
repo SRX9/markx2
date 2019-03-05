@@ -5,7 +5,7 @@ const Card=(props)=>
         if (props.cuser===props.msgob.user)
         {
                 return( 
-                        <div className="pl4 pt2d">
+                        <div className="pl4 pt2d pa1">
                         <div className="pill flex fr">
                         {props.msgob.msg}
                         </div>
@@ -14,7 +14,7 @@ const Card=(props)=>
         else
         {
                 return (
-                  <div className="pl4 pt2d">
+                  <div className="pl4 pt2d pa1">
                     <div className="pill flex fl">
                       <b>
                         {props.msgob.user}</b>

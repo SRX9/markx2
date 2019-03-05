@@ -89,7 +89,7 @@ class Mainchat extends Component {
     render() {
         return (
             <div>
-                <div>
+                <div className="ph7">
                     <Chatlog className="med" cuser={this.state.cuser} msgarr={this.state.msgarr} />
                 </div>
                 <div>

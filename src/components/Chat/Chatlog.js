@@ -4,10 +4,10 @@ import './chat.css'
 const Chatlog =(props)=>{
   return(    
           <div 
-            className=" q  "
+            className=" q  a  c pa3 "
             >
             {props.msgarr.map((msgob,index) => (
-              <Card cuser={props.cuser} msgob={props.msgarr[props.msgarr.length-1-index]} key={msgob.msg}/>
+              <Card className="pa4" cuser={props.cuser} msgob={props.msgarr[props.msgarr.length-1-index]} key={msgob.msg}/>
             ))}
           </div>
         );

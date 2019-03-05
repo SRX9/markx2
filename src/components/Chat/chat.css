@@ -3,9 +3,13 @@ body {
   height: 100vh;
   background: -webkit-linear-gradient(left, #0072ff, #00c6ff);
 }
+.a::-webkit-scrollbar { width: 0 !important }
+.c{
+  box-shadow: 0px 0px 8px 2px rgb(255, 255, 255);
+}
 .q{
     width:100%;
-    height: 620px;
+    height: 800px;
     scroll-behavior: smooth;
     position: bottom;
     overflow-y: scroll;
