@@ -1,6 +1,30 @@
-.pill {
-  background-color: rgb(255, 255, 255);
+.pillr {
+  background-image: linear-gradient(to left,#00d2ff,#2c82fa);
   border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  margin: 4px 2px;
+  border-radius: 16px;
+}
+.pills {
+  background-image: linear-gradient(to right,#57a831,#a8e063);
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  margin: 4px 2px;
+  border-radius: 16px;
+}
+.pill1{
+  background-image: linear-gradient(to right,#2df0e6,#00c9ff,#2df0e6);
+  border: none;
+  color:white;
+  width: 450px;
   padding: 10px 20px;
   text-align: center;
   text-decoration: none;

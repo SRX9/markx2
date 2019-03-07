@@ -1,18 +1,17 @@
 
-input{
-    width: 80%;
-    height: 30px;
-    padding: 20px;
--webkit-border-radius: 50px;
--moz-border-radius: 50px;
-border-radius: 50px;
+.pill {
+  background-color: rgb(255, 255, 255);
+  border: none;
+  padding: 10px 20px;
+  display: inline-block;
+  margin: 4px 2px;
+  border-radius: 16px;
 }
-
 
 .footer {
     width: 100%;
     padding: 10px;
     align-items: center;
-  position: fixed;
+  position: relative;
   bottom: 0;
 }

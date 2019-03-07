@@ -4,7 +4,6 @@ import Chatlog from './components/Chat/Chatlog';
 import Send from './components/Send/Send';
 import 'tachyons';
 import axios from "axios";
-
 class Mainchat extends Component {
     constructor(props)
     {
@@ -21,35 +20,48 @@ class Mainchat extends Component {
     }
     componentWillMount() {
         this.setState({ cuser: this.props.user });
+        console.log(this.state.cuser+" inside Mainchat.js")
     }
     async componentDidMount() 
     {
         try {
             setInterval(async () => {
+                    axios
+                      .get(
+                        "https://markserver-2.herokuapp.com/getmsg",
+                        {
+                          params: {
+                            user: this.state.cuser
+                          }
+                        }
+                      )
+                      .then(res => {
+                        if (res.data.length !== 0) {
+                          var resdata = [...res.data];
+                          var final = this.state.msgarr.concat(
+                            resdata
+                          );
+                          this.setState({ msgarr: final });
+                        } else {
+                          console.log("nothing got");
+                        }
+                      });
+                      /*
                 axios
-                  .get(
-                    "https://markserver-1.herokuapp.com/getmsg",
-                    {
-                      params: {
-                        user: this.state.cuser
-                      }
-                    }
-                  )
-                  .then(res => {
-                    if (res.data.length !== 0) {
-                      console.log(res.data);
-                      var initial = [...this.state.msgarr];
-                      var final = initial.concat(res.data);
-                      if (initial.length !== final.length) {
-                        this.setState({ msgarr: final });
-                      } else {
-                        console.log("nothing send");
-                      }
-                    } else {
-                      console.log("not send anything");
-                    }
-                  });
-            }, 1000);
+                    .get("http://localhost:3000/currentUsers", {
+                    })
+                    .then(res => {
+                        if (res.data.length !== 0) {
+                            var resusers = [...res.data];
+                            var final1 = this.state.msgarr.concat(resusers);
+                            this.setState({ msgarr: final1 });
+                        }
+                        else {
+                            console.log("No other User Joined");
+                        }
+
+                    });*/
+            }, 2200);
         } catch (e) {
             console.log(e);
         }
@@ -69,7 +81,7 @@ class Mainchat extends Component {
         }
         axios({
           method: "post",
-          url: "https://markserver-1.herokuapp.com/sendmsg",
+          url: "https://markserver-2.herokuapp.com/sendmsg",
           data: {
             msg: this.state.input,
             user: this.state.cuser
@@ -89,7 +101,7 @@ class Mainchat extends Component {
     render() {
         return (
             <div>
-                <div className="ph7">
+                <div>
                     <Chatlog className="med" cuser={this.state.cuser} msgarr={this.state.msgarr} />
                 </div>
                 <div>

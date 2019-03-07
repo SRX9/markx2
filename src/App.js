@@ -5,37 +5,29 @@ import 'tachyons';
 import axios from "axios";
 import Auth from './components/auth/auth';
 import Mainchat from './Mainchat';
-var user;
+var user1;
 class App extends React.Component
 {
-    state={
-      user:'',
-      userfound:true,
-      error:''
-    }
+  state={
+    user:'',
+    userfound:true
+  }
 
   userentry=(event)=>{
-    user=event.target.value
-    console.log(user);
+    user1=event.target.value
+    console.log(user1);
   }
 
   userentrydone=()=>
   {
-    this.setState({user:user});
-    axios
-      .get("https://markserver-1.herokuapp.com/checkforuser", {
-        params: {
-          user: user
-        }
-      })
-      .then(res => {
-        console.log(res.data.ispresent);
-        if (res.data.ispresent) {
-          this.setState({ userfound: false });
-        } else {
-          this.setState({ error: "Wrong Info!!" });
-        }
-      });
+    axios({
+      method: "post",
+      url: "https://markserver-2.herokuapp.com/setUser",
+      data: {
+        user: user1
+      }
+    });
+    this.setState({user:user1,userfound:false});
   }
   render()
   {
@@ -44,7 +36,7 @@ class App extends React.Component
         <Head className="a"/>
         {this.state.userfound?
         <div>
-          <Auth userentry={this.userentry} error={this.state.error} userentrydone={this.userentrydone}/>
+          <Auth userentry={this.userentry} userentrydone={this.userentrydone}/>
         </div>:
         <div>
           <Mainchat user={this.state.user}/>
